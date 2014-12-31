@@ -23,6 +23,9 @@ TARGET_OMAP4430_CPU_OVERCLOCK := true
 -include device/samsung/omap4-common/BoardConfigCommon.mk
 
 USE_CAMERA_STUB := true
+COMMON_GLOBAL_CFLAGS += -DREFBASE_JB_MR1_COMPAT_SYMBOLS
+
+TARGET_NEEDS_NON_PIE_SUPPORT := true
 
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
@@ -91,10 +94,10 @@ BOARD_USE_LEGACY_SENSORS_FUSION := false
 BOARD_USES_SECURE_SERVICES := true
 
 # Selinux
-BOARD_SEPOLICY_DIRS := \
+# BOARD_SEPOLICY_DIRS := \
     device/samsung/p5100/selinux
 
-BOARD_SEPOLICY_UNION := \
+# BOARD_SEPOLICY_UNION := \
     file_contexts \
     file.te \
     device.te \
